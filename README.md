@@ -7,4 +7,4 @@ None of these are hard problem individually. They're hard because the standard t
 RoRx doesn't replace those tools. It gives you a layer on top of them that makes the relationships between async operations explicit, readable, and safe by default.
 
 ## Installation
-RoRx is a standalone module which can be found as a .rbxl file under the releases section on this github repository
+RoRx is a standalone module which can be dragged and dropped into VS Code or your Roblox Studio game directly, available in the releases section: https://github.com/samnewmn/RoRx/releases/latest
