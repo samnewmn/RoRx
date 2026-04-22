@@ -1,0 +1,2 @@
+*       text=auto eol=crlf
+*.lua   text eol=crlf linguist-language=Luau
