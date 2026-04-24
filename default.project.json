@@ -1,6 +1,7 @@
 {
   "name": "RoRx",
   "tree": {
+    "$className": "ModuleScript",
     "$path": "src/RoRx.luau"
   }
 }
