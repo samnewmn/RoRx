@@ -1,14 +1,15 @@
-# A fast, small, safe, gradually typed embeddable scripting language derived from Lua
-#
-# https://github.com/luau-lang/luau
-# https://luau.org/
+# Wally packages (installed locally, not committed)
+Packages/
 
-# Code coverage
-coverage.out
+# Rojo build output
+*.rbxm
+*.rbxmx
+*.rbxl
+*.rbxlx
 
-# Profiling
-profile.out
-profile.svg
+# Aftman tool binaries
+.aftman/
 
-# Time trace
-trace.json
+# OS
+.DS_Store
+Thumbs.db
