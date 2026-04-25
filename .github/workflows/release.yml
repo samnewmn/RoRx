@@ -1,0 +1,40 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_OUTPUT
+
+      - name: Verify version matches source
+        run: |
+          SOURCE_VERSION=$(grep -m1 'RoRx.VERSION' src/RoRx.luau | grep -oP '"\K[^"]+')
+          TAG_VERSION=${{ steps.version.outputs.VERSION }}
+          if [ "$SOURCE_VERSION" != "$TAG_VERSION" ]; then
+            echo "Version mismatch: tag is v$TAG_VERSION but RoRx.VERSION is $SOURCE_VERSION"
+            exit 1
+          fi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: v${{ steps.version.outputs.VERSION }}
+          tag_name: ${{ github.ref_name }}
+          body_path: CHANGELOG.md
+          files: src/RoRx.luau
+          draft: false
+          prerelease: false
