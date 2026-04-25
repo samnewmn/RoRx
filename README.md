@@ -12,13 +12,7 @@ RoRx brings the reactive programming model from [RxJS](https://rxjs.dev/) into R
  
 ## Installation
  
-RoRx is a single `ModuleScript`. Copy the source into a new `ModuleScript`, or download the `.rbxm` file and insert it via **Insert from File**.
- 
-**Recommended location:** `ReplicatedStorage`, so both the server and client can access it.
- 
-```lua
-local RoRx = require(game.ReplicatedStorage.RoRx)
-```
+RoRx is a single `ModuleScript`. A .rbxm file and a .luau can both be found in the GitHub [releases](https://github.com/samnewmn/RoRx/releases/latest) section
  
 ## Core Concepts
  
