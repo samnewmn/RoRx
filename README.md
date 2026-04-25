@@ -109,15 +109,3 @@ registry.unsubscribeAll()
 **Subjects** — `Subject`, `BehaviorSubject`, `ReplaySubject`
  
 **State** — `State` / `Atom` — a reactive container with `get`, `set`, `update`, `observe`, `select`, and `destroy`
- 
-## Extending RoRx
- 
-Register custom operators with the `EXTENSION:` prefix. Once registered they are available as both `RoRx.myOp(...)` and as a chainable method on every Observable.
- 
-```lua
-RoRx["EXTENSION:mapToString"] = function()
-    return RoRx.map(function(value) return tostring(value) end)
-end
- 
-RoRx.of(1, 2, 3):mapToString():subscribe(print) -- "1"  "2"  "3"
-```
