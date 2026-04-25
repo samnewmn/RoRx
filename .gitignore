@@ -10,6 +10,9 @@ Packages/
 # Aftman tool binaries
 .aftman/
 
+# Github issue templates
+.github/ISSUE_TEMPLATE
+
 # OS
 .DS_Store
 Thumbs.db
