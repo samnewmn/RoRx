@@ -1,0 +1,18 @@
+std = "roblox"
+include = ["src/**/*.luau"]
+
+[lints]
+# Roblox globals like game, workspace, script are handled by the roblox std.
+# These are intentional patterns in RoRx and do not need warnings.
+
+# pcall returns are often intentionally ignored during teardown cleanup.
+unused_variable = "warn"
+
+# Shadowing is used deliberately in closures (e.g. index, acc, value).
+shadowing = "allow"
+
+# Empty if bodies with comments are valid guard clauses.
+empty_if = "allow"
+
+[config]
+unused_variable = { ignore_pattern = "^_" }
