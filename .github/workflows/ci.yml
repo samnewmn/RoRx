@@ -23,9 +23,9 @@ jobs:
           args: --check src/
 
       - name: Install Selene
-        uses: cargo-bins/cargo-binstall-action@v1
+        uses: taiki-e/install-action@v2
+        with:
+          tool: selene@0.28.0
 
       - name: Lint (Selene)
-        run: |
-          cargo binstall selene --version 0.28.0 --no-confirm
-          selene src/
+        run: selene src/
