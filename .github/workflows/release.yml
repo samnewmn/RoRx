@@ -22,11 +22,13 @@ jobs:
 
       - name: Verify version matches source
         run: |
-          SOURCE_VERSION=$(grep -m1 'RoRx.VERSION' src/RoRx.luau | grep -oP '"\K[^"]+')
-          TAG_VERSION=${{ steps.version.outputs.VERSION }}
+          SOURCE_VERSION=$(grep -m1 'RoRx.VERSION' src/RoRx.luau | grep -oP '"\K[^"]+' | tr -d '[:space:]')
+          TAG_VERSION='${{ steps.version.outputs.VERSION }}'
+          TAG_VERSION=$(printf '%s' "$TAG_VERSION" | tr -d '[:space:]')
+
           if [ "$SOURCE_VERSION" != "$TAG_VERSION" ]; then
-            echo "Version mismatch: tag is v$TAG_VERSION but RoRx.VERSION is $SOURCE_VERSION"
-            exit 1
+           echo "Version mismatch: tag is $TAG_VERSION but RoRx.VERSION is $SOURCE_VERSION"
+          exit 1
           fi
 
       - name: Create GitHub Release
