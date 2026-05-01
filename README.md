@@ -59,9 +59,9 @@ RoRx.fromPlayerAdded()
 -- Track a stat reactively
 local score = RoRx.State.new(0)
  
-score.update(function(n) return n + 10 end)
+score:update(function(n) return n + 10 end)
  
-score.select(function(n) return n >= 100 end)
+score:select(function(n) return n >= 100 end)
     :subscribe(function(won)
         if won then print("You win!") end
     end)
